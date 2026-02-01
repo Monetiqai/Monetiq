@@ -1,0 +1,477 @@
+/**
+ * Ads Mode Premium UI Design System
+ * Performance Cockpit / Trading Terminal Aesthetic
+ */
+
+/* ============================================
+   SCROLLBAR STYLING (Ads Mode specific)
+   ============================================ */
+
+/* Hide scrollbar for Ads Mode container only */
+[data-ads-mode] {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+
+[data-ads-mode]::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+/* ============================================
+   COLOR SYSTEM
+   ============================================ */
+
+:root {
+  /* Primary Accent - Sky Blue */
+  --ads-sky-blue: #0EA5E9;
+  --ads-sky-blue-hover: #0284C7;
+  --ads-sky-blue-active: #0369A1;
+  --ads-sky-blue-glow: rgba(14, 165, 233, 0.3);
+  --ads-sky-blue-glow-strong: rgba(14, 165, 233, 0.5);
+
+  /* Secondary Accent - Blue Gray */
+  --ads-blue-gray: #64748B;
+  --ads-blue-gray-light: #94A3B8;
+  --ads-blue-gray-dark: #475569;
+
+  /* Background Layers (Depth System) */
+  --ads-bg-layer-0: #0A0E14;
+  /* Main background */
+  --ads-bg-layer-1: #0F1419;
+  /* Elevated panels */
+  --ads-bg-layer-2: #151B23;
+  /* Cards */
+  --ads-bg-layer-3: #1A2129;
+  /* Hover/Active */
+
+  /* Status Colors */
+  --ads-success: #10B981;
+  --ads-success-bg: rgba(16, 185, 129, 0.15);
+  --ads-success-glow: rgba(16, 185, 129, 0.3);
+
+  --ads-warning: #F59E0B;
+  --ads-warning-bg: rgba(245, 158, 11, 0.15);
+
+  --ads-error: #EF4444;
+  --ads-error-bg: rgba(239, 68, 68, 0.15);
+
+  --ads-neutral: #6B7280;
+  --ads-neutral-bg: rgba(107, 114, 128, 0.15);
+
+  /* Text Colors */
+  --ads-text-primary: #F8FAFC;
+  --ads-text-secondary: #CBD5E1;
+  --ads-text-tertiary: #94A3B8;
+  --ads-text-disabled: #64748B;
+
+  /* ============================================
+     DEPTH & ELEVATION
+     ============================================ */
+
+  /* Shadows */
+  --ads-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --ads-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --ads-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --ads-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+
+  /* Glows */
+  --ads-glow-sky: 0 0 20px var(--ads-sky-blue-glow);
+  --ads-glow-sky-strong: 0 0 30px var(--ads-sky-blue-glow-strong);
+  --ads-glow-success: 0 0 20px var(--ads-success-glow);
+
+  /* Inner Shadows (Relief) */
+  --ads-inner-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+
+  /* ============================================
+     SPACING
+     ============================================ */
+
+  --ads-space-1: 4px;
+  --ads-space-2: 8px;
+  --ads-space-3: 12px;
+  --ads-space-4: 16px;
+  --ads-space-5: 20px;
+  --ads-space-6: 24px;
+  --ads-space-8: 32px;
+  --ads-space-10: 40px;
+  --ads-space-12: 48px;
+  --ads-space-16: 64px;
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+
+  --ads-radius-sm: 4px;
+  --ads-radius-md: 8px;
+  --ads-radius-lg: 12px;
+  --ads-radius-xl: 16px;
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+
+  --ads-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ads-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ads-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.ads-text-display {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ads-text-primary);
+}
+
+.ads-text-h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ads-text-primary);
+}
+
+.ads-text-h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ads-text-primary);
+}
+
+.ads-text-h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ads-text-primary);
+}
+
+.ads-text-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ads-text-secondary);
+}
+
+.ads-text-small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ads-text-secondary);
+}
+
+.ads-text-micro {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ads-text-tertiary);
+}
+
+.ads-text-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  color: var(--ads-text-tertiary);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.ads-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ads-space-2);
+  padding: var(--ads-space-3) var(--ads-space-6);
+  border-radius: var(--ads-radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--ads-transition-base);
+  border: none;
+  outline: none;
+}
+
+.ads-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary Button (Sky Blue) */
+.ads-btn-primary {
+  background: var(--ads-sky-blue);
+  color: white;
+  box-shadow: var(--ads-shadow-sm);
+}
+
+.ads-btn-primary:hover:not(:disabled) {
+  background: var(--ads-sky-blue-hover);
+  box-shadow: var(--ads-shadow-md), var(--ads-glow-sky);
+  transform: translateY(-1px);
+}
+
+.ads-btn-primary:active:not(:disabled) {
+  background: var(--ads-sky-blue-active);
+  transform: translateY(0);
+}
+
+/* Secondary Button (Outline) */
+.ads-btn-secondary {
+  background: transparent;
+  color: var(--ads-text-secondary);
+  border: 1px solid var(--ads-blue-gray);
+}
+
+.ads-btn-secondary:hover:not(:disabled) {
+  background: var(--ads-bg-layer-2);
+  border-color: var(--ads-sky-blue);
+  color: var(--ads-text-primary);
+}
+
+/* Tertiary Button (Ghost) */
+.ads-btn-tertiary {
+  background: transparent;
+  color: var(--ads-text-tertiary);
+}
+
+.ads-btn-tertiary:hover:not(:disabled) {
+  background: var(--ads-bg-layer-1);
+  color: var(--ads-text-secondary);
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+
+.ads-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ads-space-1);
+  padding: var(--ads-space-1) var(--ads-space-2);
+  border-radius: var(--ads-radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.ads-badge-winner {
+  background: var(--ads-success-bg);
+  border: 1px solid var(--ads-success);
+  color: var(--ads-success);
+  box-shadow: var(--ads-glow-success);
+}
+
+.ads-badge-test {
+  background: var(--ads-warning-bg);
+  border: 1px solid var(--ads-warning);
+  color: var(--ads-warning);
+}
+
+.ads-badge-final {
+  background: rgba(14, 165, 233, 0.15);
+  border: 1px solid var(--ads-sky-blue);
+  color: var(--ads-sky-blue);
+}
+
+.ads-badge-draft {
+  background: var(--ads-neutral-bg);
+  border: 1px solid var(--ads-neutral);
+  color: var(--ads-neutral);
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.ads-card {
+  background: var(--ads-bg-layer-2);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: var(--ads-radius-lg);
+  padding: var(--ads-space-6);
+  box-shadow: var(--ads-shadow-md);
+  transition: all var(--ads-transition-base);
+}
+
+.ads-card:hover {
+  background: var(--ads-bg-layer-3);
+  box-shadow: var(--ads-shadow-lg);
+}
+
+.ads-card-active {
+  border: 2px solid var(--ads-sky-blue);
+  box-shadow: var(--ads-shadow-lg), var(--ads-glow-sky);
+}
+
+.ads-card-winner {
+  border: 2px solid var(--ads-success);
+  box-shadow: var(--ads-shadow-lg), var(--ads-glow-success);
+}
+
+/* Variant Card (smaller, more compact) */
+.ads-variant-card {
+  background: var(--ads-bg-layer-1);
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  border-radius: var(--ads-radius-md);
+  padding: var(--ads-space-4);
+  box-shadow: var(--ads-inner-shadow);
+  transition: all var(--ads-transition-base);
+  cursor: pointer;
+}
+
+.ads-variant-card:hover {
+  background: var(--ads-bg-layer-2);
+  border-color: var(--ads-sky-blue);
+}
+
+.ads-variant-card-selected {
+  border: 2px solid var(--ads-sky-blue);
+  box-shadow: var(--ads-glow-sky);
+}
+
+.ads-variant-card-winner {
+  border: 2px solid var(--ads-success);
+  box-shadow: var(--ads-glow-success);
+}
+
+.ads-variant-card-locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.ads-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--ads-space-6);
+}
+
+.ads-grid {
+  display: grid;
+  gap: var(--ads-space-6);
+}
+
+.ads-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ads-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ads-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .ads-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .ads-grid-2,
+  .ads-grid-3,
+  .ads-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.ads-bg-layer-0 {
+  background: var(--ads-bg-layer-0);
+}
+
+.ads-bg-layer-1 {
+  background: var(--ads-bg-layer-1);
+}
+
+.ads-bg-layer-2 {
+  background: var(--ads-bg-layer-2);
+}
+
+.ads-bg-layer-3 {
+  background: var(--ads-bg-layer-3);
+}
+
+.ads-shadow-sm {
+  box-shadow: var(--ads-shadow-sm);
+}
+
+.ads-shadow-md {
+  box-shadow: var(--ads-shadow-md);
+}
+
+.ads-shadow-lg {
+  box-shadow: var(--ads-shadow-lg);
+}
+
+.ads-shadow-xl {
+  box-shadow: var(--ads-shadow-xl);
+}
+
+.ads-glow-sky {
+  box-shadow: var(--ads-glow-sky);
+}
+
+.ads-glow-sky-strong {
+  box-shadow: var(--ads-glow-sky-strong);
+}
+
+.ads-glow-success {
+  box-shadow: var(--ads-glow-success);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes ads-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.ads-pulse {
+  animation: ads-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes ads-pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: var(--ads-glow-sky);
+  }
+
+  50% {
+    box-shadow: var(--ads-glow-sky-strong);
+  }
+}
+
+.ads-pulse-glow {
+  animation: ads-pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

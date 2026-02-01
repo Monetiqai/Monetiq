@@ -1,0 +1,44 @@
+{
+  "name": "ecommerce-ai-v1",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test:phase9": "tsx lib/ads-mode/test-suite.ts",
+    "test:phase10": "tsx test-phase10.ts",
+    "test:phase11:constraints": "tsx test-phase11-constraints.ts",
+    "test:phase11:rls": "tsx test-phase11-rls.ts",
+    "test:phase11:e2e": "tsx test-phase11-e2e.ts",
+    "test:phase11": "npm run test:phase11:constraints && npm run test:phase11:rls && npm run test:phase11:e2e"
+  },
+  "dependencies": {
+    "@aws-sdk/client-polly": "^3.975.0",
+    "@aws-sdk/client-s3": "^3.975.0",
+    "@google/genai": "^1.37.0",
+    "@google/generative-ai": "^0.24.1",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.90.1",
+    "dotenv": "^17.2.3",
+    "next": "^16.1.4",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "reactflow": "^11.11.4",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "tsx": "^4.7.0",
+    "typescript": "^5"
+  }
+}

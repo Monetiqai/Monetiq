@@ -1,0 +1,64 @@
+/**
+ * Shared Design Tokens
+ * Used by both Landing Page and Director Node UI
+ * Provides consistent glass-morphism aesthetic with rounded corners
+ */
+
+:root {
+  /* ===== Background Colors ===== */
+  --bg-primary: #0b0b0b;
+  --bg-panel: rgba(255, 255, 255, 0.04);
+  --bg-panel-hover: rgba(255, 255, 255, 0.06);
+
+  /* ===== Glass Card/Node Styling ===== */
+  --node-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+  --node-bg-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.05));
+  --node-border: rgba(255, 255, 255, 0.12);
+  --node-border-hover: rgba(56, 189, 248, 0.32);
+  --node-radius: 18px;
+  --node-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --node-shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.45);
+
+  /* ===== Typography Colors ===== */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.78);
+  --text-tertiary: rgba(255, 255, 255, 0.65);
+  --text-dim: rgba(255, 255, 255, 0.55);
+
+  /* ===== Font Sizes ===== */
+  --font-xs: 11px;
+  --font-sm: 12px;
+  --font-md: 13px;
+  --font-lg: 14px;
+
+  /* ===== Spacing ===== */
+  --spacing-xs: 8px;
+  --spacing-sm: 10px;
+  --spacing-md: 12px;
+  --spacing-lg: 14px;
+  --spacing-xl: 18px;
+
+  /* ===== Accent Colors (Landing Page) ===== */
+  --sky: #38bdf8;
+  --sky-dark: #0ea5e9;
+  --sky-glow: rgba(56, 189, 248, 0.25);
+
+  --lime: #d7ff2f;
+  --lime-dark: #bfff00;
+  --lime-glow: rgba(215, 255, 47, 0.22);
+
+  /* ===== Edge/Handle Colors (Graph-specific) ===== */
+  --edge-prompt: #8b5cf6;
+  --edge-prompt-glow: rgba(139, 92, 246, 0.3);
+
+  --edge-image: #f59e0b;
+  --edge-image-glow: rgba(245, 158, 11, 0.3);
+
+  /* ===== Glass Effect ===== */
+  --glass-blur: blur(10px);
+  --glass-bg: rgba(11, 11, 11, 0.55);
+
+  /* ===== Interactive States ===== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}

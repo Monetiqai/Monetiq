@@ -1,0 +1,121 @@
+/* ============================================
+   MONETIQ DESIGN SYSTEM - DESIGN TOKENS
+   ============================================
+   
+   ONE unified design system.
+   THREE color accents.
+   ZERO structural differences.
+   ============================================ */
+
+:root {
+    /* ============================================
+     BASE COLORS (same for all modes)
+     ============================================ */
+    --bg-primary: #0B0E14;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --border-card: rgba(255, 255, 255, 0.06);
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.5);
+
+    /* ============================================
+     MODE ACCENTS (only difference between modes)
+     ============================================ */
+    --accent-director: #FFA726;
+    --accent-director-rgb: 255, 167, 38;
+
+    --accent-node: #8B5CF6;
+    --accent-node-rgb: 139, 92, 246;
+
+    --accent-ads: #38BDF8;
+    --accent-ads-rgb: 56, 189, 248;
+
+    /* ============================================
+     SPACING TOKENS (strict - no custom spacing)
+     ============================================ */
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+    --space-xxl: 64px;
+
+    /* ============================================
+     TYPOGRAPHY SCALE
+     ============================================ */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+
+    --font-h1-size: clamp(24px, 3vw, 32px);
+    --font-h1-weight: 900;
+    --font-h1-tracking: -1px;
+    --font-h1-line: 1.1;
+
+    --font-h2-size: 16px;
+    --font-h2-weight: 900;
+    --font-h2-tracking: normal;
+    --font-h2-line: 1.2;
+
+    --font-h3-size: 14px;
+    --font-h3-weight: 700;
+    --font-h3-tracking: normal;
+    --font-h3-line: 1.3;
+
+    --font-body-size: 13px;
+    --font-body-weight: 400;
+    --font-body-line: 1.5;
+
+    --font-caption-size: 11px;
+    --font-caption-weight: 400;
+    --font-caption-line: 1.4;
+
+    /* ============================================
+     CARD SYSTEM (ONE system for all modes)
+     ============================================ */
+    --card-radius: 16px;
+    --card-border: 1px solid var(--border-card);
+    --card-bg: var(--bg-card);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    --card-blur: blur(12px);
+    --card-padding-desktop: var(--space-lg);
+    --card-padding-tablet: 20px;
+    --card-padding-mobile: var(--space-md);
+
+    /* ============================================
+     CTA SYSTEM (ONE system for all modes)
+     ============================================ */
+    --cta-padding: 16px 32px;
+    --cta-radius: 4px;
+    --cta-font-size: 14px;
+    --cta-font-weight: 700;
+    --cta-letter-spacing: 1px;
+    --cta-transition: all 0.2s ease;
+    --cta-shadow-base: 0 8px 24px;
+    --cta-shadow-hover: 0 12px 32px;
+    --cta-hover-translate: -2px;
+}
+
+/* ============================================
+   GLOBAL BACKGROUND
+   ============================================ */
+body {
+    background: var(--bg-primary);
+    background-image:
+        radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.02), transparent 50%);
+    font-family: var(--font-family);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.accent-director {
+    color: var(--accent-director);
+}
+
+.accent-node {
+    color: var(--accent-node);
+}
+
+.accent-ads {
+    color: var(--accent-ads);
+}
