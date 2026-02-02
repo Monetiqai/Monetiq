@@ -36,6 +36,32 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // Define protected routes that require authentication
+  const protectedRoutes = [
+    "/director-mode",
+    "/director-node",
+    "/ads-mode",
+    "/dashboard",
+    "/project",
+    "/account",
+    "/music",
+    "/image",
+    "/video",
+  ];
+
+  // Check if current path is a protected route
+  const isProtectedRoute = protectedRoutes.some(route =>
+    request.nextUrl.pathname.startsWith(route)
+  );
+
+  // Redirect to auth if not authenticated on protected route
+  if (isProtectedRoute && !user) {
+    const redirectUrl = new URL("/auth", request.url);
+    // Preserve original URL for redirect after login
+    redirectUrl.searchParams.set("redirect", request.nextUrl.pathname);
+    return NextResponse.redirect(redirectUrl);
+  }
+
   // Return response with persisted cookies
   return supabaseResponse;
 }
