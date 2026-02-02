@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseServer, getAuthenticatedUser } from '@/lib/supabase/server';
+import { supabaseServer } from '@/lib/supabase/server';
 import { processRun } from '@/app/director-node/runtime/worker';
 
 // Force reload: 2026-01-29 16:23 - CameraMovement fix
@@ -52,8 +52,9 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // Get current user with caching to prevent rate limit errors
-        const { user, error: authError } = await getAuthenticatedUser();
+        // Authenticate user
+        const supabase = await supabaseServer();
+        const { data: { user }, error: authError } = await supabase.auth.getUser();
         if (authError || !user) {
             return NextResponse.json(
                 { error: 'Unauthorized' },
@@ -61,7 +62,7 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        const supabase = await supabaseServer();
+
 
         // Fetch graph (verify ownership via RLS)
         const { data: graph, error: graphError } = await supabase
@@ -197,8 +198,9 @@ export async function GET(req: NextRequest) {
             );
         }
 
-        // Get current user with caching to prevent rate limit errors
-        const { user, error: authError } = await getAuthenticatedUser();
+        // Authenticate user
+        const supabase = await supabaseServer();
+        const { data: { user }, error: authError } = await supabase.auth.getUser();
         if (authError || !user) {
             return NextResponse.json(
                 { error: 'Unauthorized' },
@@ -206,7 +208,7 @@ export async function GET(req: NextRequest) {
             );
         }
 
-        const supabase = await supabaseServer();
+
 
         // Fetch runs (RLS will filter by user_id automatically)
         const { data: runs, error } = await supabase
