@@ -1,5 +1,6 @@
 "use client";
 
+import { cdn } from "@/lib/cdn";
 import UnifiedCard from "./UnifiedCard";
 import UnifiedCTA from "./UnifiedCTA";
 
@@ -23,7 +24,7 @@ export default function HeroNodeMode() {
                     pointerEvents: "none"
                 }}
             >
-                <source src="/hero/node-mode-hero.mp4" type="video/mp4" />
+                <source src={cdn("/public/hero/node-mode-hero.mp4")} type="video/mp4" />
             </video>
 
             {/* Stronger Dark Overlay for Text Readability */}

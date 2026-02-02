@@ -1,5 +1,7 @@
 "use client";
 
+import { cdn } from "@/lib/cdn";
+
 export default function GlobalHero() {
     return (
         <section style={{
@@ -27,7 +29,7 @@ export default function GlobalHero() {
                     zIndex: 0,
                 }}
             >
-                <source src="/hero/global-hero.mp4" type="video/mp4" />
+                <source src={cdn("/public/hero/global-hero.mp4")} type="video/mp4" />
             </video>
 
             {/* Lighter Dark Overlay */}

@@ -2,6 +2,7 @@
 
 import { Handle, Position } from 'reactflow';
 import { useState, useEffect, useRef } from 'react';
+import { cdn } from '@/lib/cdn';
 import { useNodeContextMenu } from '../../hooks/useNodeContextMenu';
 import { NodeContextMenu } from '../NodeContextMenu';
 import { CAMERA_MOVEMENTS, MOVEMENT_LABELS } from '@/lib/cinema/cinematic-movements.config';
@@ -127,7 +128,7 @@ export function CameraMovementNode({ id, data, selected }: any) {
                     <video
                         ref={videoRef}
                         key={movement}
-                        src={`/movements/${movement}.mp4`}
+                        src={cdn(`/public/movements/${movement}.mp4`)}
                         autoPlay
                         loop
                         muted
@@ -144,7 +145,7 @@ export function CameraMovementNode({ id, data, selected }: any) {
                             // Fallback to webm if mp4 fails
                             const video = e.currentTarget;
                             if (video.src.endsWith('.mp4')) {
-                                video.src = `/movements/${movement}.webm`;
+                                video.src = cdn(`/public/movements/${movement}.webm`);
                             }
                         }}
                     />

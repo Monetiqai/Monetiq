@@ -24,7 +24,7 @@ console.log('[DEBUG] R2_BUCKET:', process.env.R2_BUCKET);
 console.log('');
 
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
-import { createClient } from '@/lib/supabase/server';
+import { supabaseServer } from '@/lib/supabase/server';
 
 // Create R2 client directly (avoid config.ts timing issues)
 const r2Client = new S3Client({
@@ -95,7 +95,7 @@ async function testAudioUpload() {
 
         // Step 3: Create asset row
         console.log('[3/4] Creating asset row in database...');
-        const supabase = await createClient();
+        const supabase = await supabaseServer();
 
         const { data: { user } } = await supabase.auth.getUser();
 

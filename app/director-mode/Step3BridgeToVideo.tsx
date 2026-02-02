@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { cdn } from "@/lib/cdn";
 import { Scene, RenderJob } from "@/lib/types/director-mode";
 
 interface Step3Props {
@@ -395,7 +396,7 @@ export default function Step3BridgeToVideo({
                                 }}>
                                     {/* Try to load video, fallback to icon */}
                                     <video
-                                        src={`/movements/${movement.id}.mp4`}
+                                        src={cdn(`/public/movements/${movement.id}.mp4`)}
                                         loop
                                         muted
                                         playsInline

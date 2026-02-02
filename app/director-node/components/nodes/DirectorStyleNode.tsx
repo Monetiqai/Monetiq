@@ -1,7 +1,8 @@
 'use client';
 
 import { Handle, Position } from 'reactflow';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { cdn } from '@/lib/cdn';
 import { useNodeContextMenu } from '../../hooks/useNodeContextMenu';
 import { NodeContextMenu } from '../NodeContextMenu';
 
@@ -121,7 +122,7 @@ export function DirectorStyleNode({ id, data, selected }: any) {
                 {/* Director Photo Preview */}
                 <div style={{ marginTop: '12px', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <img
-                        src={`/directors/${director}.jpg`}
+                        src={cdn(`/public/directors/${director}.jpg`)}
                         alt={director}
                         loading="lazy"
                         style={{

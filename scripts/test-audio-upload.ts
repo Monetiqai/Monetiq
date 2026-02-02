@@ -23,7 +23,7 @@ console.log(`[DEBUG] R2_ENDPOINT = ${process.env.R2_ENDPOINT ? '✓ set' : '✗ 
 console.log(`[DEBUG] R2_ACCESS_KEY_ID = ${process.env.R2_ACCESS_KEY_ID ? '✓ set' : '✗ missing'}\n`);
 
 import { uploadMedia } from '@/lib/storage/media-store';
-import { createClient } from '@/lib/supabase/server';
+import { supabaseServer } from '@/lib/supabase/server';
 
 // Generate minimal WAV file (1 second of silence)
 function generateSilentWav(durationSec: number = 1): Buffer {
@@ -80,7 +80,7 @@ async function testAudioUpload() {
 
         // Step 3: Create asset row
         console.log('[3/4] Creating asset row in database...');
-        const supabase = await createClient();
+        const supabase = await supabaseServer();
 
         // Get current user (for testing, use service role or hardcode user_id)
         const { data: { user } } = await supabase.auth.getUser();
