@@ -14,9 +14,9 @@ import { cookies } from 'next/headers';
 
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: Promise<{ id: string }> }
 ) {
-    const { id } = params;
+    const { id } = await context.params;
 
     try {
         // Create USER-SCOPED Supabase client (uses auth cookies)
