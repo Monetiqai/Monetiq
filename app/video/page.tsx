@@ -1,7 +1,12 @@
 "use client";
 
+// Disable prerendering for this page (uses window/document APIs)
+export const dynamic = "force-dynamic";
+
+
+
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { MODEL_CONFIGS } from "@/lib/runway/modelConfigs";
@@ -31,7 +36,7 @@ const RATIOS = ["16:9", "9:16", "1:1"] as const;
 const QUALITIES = ["720p", "1080p"] as const;
 const DURATIONS = [6, 8] as const;
 
-export default function VideoToolPage() {
+function VideoToolPageContent() {
   const supabase = supabaseBrowser();
   const searchParams = useSearchParams();
 
@@ -700,5 +705,18 @@ export default function VideoToolPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+// Wrap with Suspense to fix Next.js 16 useSearchParams prerender error
+export default function VideoToolPage() {
+  return (
+    <Suspense fallback={
+      <main className="root">
+        <div style={{ padding: 40, color: "white" }}>Loading...</div>
+      </main>
+    }>
+      <VideoToolPageContent />
+    </Suspense>
   );
 }

@@ -9,8 +9,8 @@ import { supabaseServer } from '@/lib/supabase/server';
 import { getAuthenticatedUser } from '@/lib/supabase/auth';
 
 export async function GET(
-    req: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    request: NextRequest,
+    context: { params: Promise<{ id: string }> }
 ) {
     try {
         const supabase = await supabaseServer();
@@ -20,7 +20,7 @@ export async function GET(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const { id: jobId } = await params;
+        const { id: jobId } = await context.params;
 
         // Get job
         const { data: job, error } = await supabase

@@ -19,11 +19,11 @@ import { getAuthenticatedUser } from '@/lib/supabase/auth';
  */
 export async function GET(
     req: NextRequest,
-    { params }: { params: Promise<{ jobId: string }> }
+    context: { params: Promise<{ jobId: string }> }
 ) {
     try {
         const supabase = await supabaseServer();
-        const { jobId } = await params;
+        const { jobId } = await context.params;
 
         if (!jobId) {
             return NextResponse.json(

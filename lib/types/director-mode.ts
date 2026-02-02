@@ -10,7 +10,7 @@ export interface Scene {
   projectId: string;
   index: number; // 0-based scene order
   intent: string; // Short description (e.g., "Opening shot")
-  recommendedDuration: 5 | 10;
+  recommendedDuration: 6 | 10;
   recommendedMovement: string; // Camera movement ID
   anchorAssetId?: string; // Selected frame for this scene
   status: 'pending' | 'ready' | 'generating' | 'failed';
@@ -34,7 +34,7 @@ export interface Template {
  */
 export interface TemplateScene {
   intent: string;
-  duration: 5 | 10;
+  duration: 6 | 10;
   movement: string; // Camera movement ID (e.g., "dolly_in", "static")
 }
 

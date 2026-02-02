@@ -167,6 +167,9 @@ export function CameraMovementNode({ id, data, selected }: any) {
             {/* Context Menu */}
             {contextMenuOpen && (
                 <NodeContextMenu
+                    nodeId={id}
+                    nodeType="CameraMovement"
+                    isOpen={contextMenuOpen}
                     position={contextMenuPosition}
                     onClose={() => setContextMenuOpen(false)}
                     onDuplicate={handleDuplicate}

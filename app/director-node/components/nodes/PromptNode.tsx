@@ -125,7 +125,7 @@ export function PromptNode({ data, id, selected }: PromptNodeProps) {
             {contextMenuOpen && (
                 <NodeContextMenu
                     nodeId={id}
-                    nodeType="prompt"
+                    nodeType="Prompt"
                     isOpen={contextMenuOpen}
                     position={contextMenuPosition}
                     onClose={() => setContextMenuOpen(false)}

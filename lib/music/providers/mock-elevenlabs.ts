@@ -8,12 +8,12 @@ import type { VoiceProvider, VoiceTTSParams, ProviderResult } from './types';
 import { logProviderCall } from './logger';
 
 export class MockElevenLabsProvider implements VoiceProvider {
-    async tts(params: VoiceTTSParams, jobId: string): Promise<ProviderResult> {
+    async tts(params: VoiceTTSParams): Promise<ProviderResult> {
         const startTime = Date.now();
 
         // Log started
         await logProviderCall({
-            jobId,
+            jobId: 'mock',
             provider: 'elevenlabs_mock',
             action: 'tts',
             status: 'started',
@@ -34,7 +34,7 @@ export class MockElevenLabsProvider implements VoiceProvider {
 
             // Log succeeded
             await logProviderCall({
-                jobId,
+                jobId: 'mock',
                 provider: 'elevenlabs_mock',
                 action: 'tts',
                 status: 'succeeded',
@@ -61,7 +61,7 @@ export class MockElevenLabsProvider implements VoiceProvider {
 
             // Log failed
             await logProviderCall({
-                jobId,
+                jobId: 'mock',
                 provider: 'elevenlabs_mock',
                 action: 'tts',
                 status: 'failed',

@@ -9,8 +9,8 @@ import { supabaseServer } from '@/lib/supabase/server';
 import { getAuthenticatedUser } from '@/lib/supabase/auth';
 
 export async function GET(
-    req: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    request: NextRequest,
+    context: { params: Promise<{ id: string }> }
 ) {
     try {
         const supabase = await supabaseServer();
@@ -20,13 +20,13 @@ export async function GET(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const { id: jobId } = await params;
+        const { id } = await context.params;
 
         // Verify job belongs to user
         const { data: job } = await supabase
             .from('music_jobs')
             .select('id')
-            .eq('id', jobId)
+            .eq('id', id)
             .eq('user_id', user.id)
             .single();
 
@@ -51,7 +51,7 @@ export async function GET(
           meta
         )
       `)
-            .eq('job_id', jobId);
+            .eq('job_id', id);
 
         if (error) {
             console.error('[Outputs] Query error:', error);

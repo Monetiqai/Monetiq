@@ -4,7 +4,7 @@
  * Functions for creating and managing music generation jobs
  */
 
-import { createClient } from '@/lib/supabase/server';
+import { supabaseServer } from '@/lib/supabase/server';
 
 export type AudioType = 'instrumental' | 'voice_standard' | 'voice_premium';
 
@@ -23,7 +23,7 @@ export interface CreateMusicJobParams {
  * Reserves quota and adds job to queue
  */
 export async function createMusicJob(params: CreateMusicJobParams) {
-    const supabase = await createClient();
+    const supabase = await supabaseServer();
 
     // Reserve quota first
     const quotaOk = await reserveQuota(
@@ -93,7 +93,7 @@ async function reserveQuota(
     audioType: AudioType,
     durationSec: number
 ): Promise<boolean> {
-    const supabase = await createClient();
+    const supabase = await supabaseServer();
 
     const field = audioType === 'voice_premium' ? 'seconds_premium' : 'seconds_standard';
 
@@ -153,7 +153,7 @@ export async function refundQuota(
     durationSec: number,
     reason: string
 ): Promise<void> {
-    const supabase = await createClient();
+    const supabase = await supabaseServer();
 
     const field = audioType === 'voice_premium' ? 'seconds_premium' : 'seconds_standard';
 
@@ -191,7 +191,7 @@ export async function refundQuota(
  * Get user's current quota
  */
 export async function getUserQuota(userId: string) {
-    const supabase = await createClient();
+    const supabase = await supabaseServer();
 
     const { data: credits } = await supabase
         .from('usage_credits')

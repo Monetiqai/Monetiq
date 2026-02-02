@@ -686,8 +686,10 @@ async function executeVideoGenNode(node: GraphNode, inputs: Record<string, any>,
 
     // Validate resolution/duration combination
     if (!isValidCombination(provider, resolution, duration)) {
+        // @ts-ignore - TypeScript strict mode issue with dynamic indexing
         const config = VIDEO_PROVIDER_CONFIGS[provider];
-        const resConfig = config.resolutions.find(r => r.resolution === resolution);
+        // @ts-ignore
+        const resConfig = config.resolutions.find((r) => r.resolution === resolution);
         const validDurations = resConfig?.durations || [];
         throw new Error(
             `Invalid combination for ${config.label}: ${resolution} does not support ${duration}s. ` +

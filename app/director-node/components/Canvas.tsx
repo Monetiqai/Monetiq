@@ -85,7 +85,12 @@ const edgeTypes: EdgeTypes = {
     deletable: DeletableEdge,
 };
 
-export function DirectorNodeCanvas() {
+interface DirectorNodeCanvasProps {
+    projectId?: string;
+    graphId?: string;
+}
+
+export function DirectorNodeCanvas({ projectId, graphId }: DirectorNodeCanvasProps = {}) {
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [selectedNode, setSelectedNode] = useState<Node | null>(null);

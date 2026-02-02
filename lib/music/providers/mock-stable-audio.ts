@@ -8,12 +8,12 @@ import type { MusicProvider, MusicGenerateParams, ProviderResult } from './types
 import { logProviderCall } from './logger';
 
 export class MockStableAudioProvider implements MusicProvider {
-    async generate(params: MusicGenerateParams, jobId: string): Promise<ProviderResult> {
+    async generate(params: MusicGenerateParams): Promise<ProviderResult> {
         const startTime = Date.now();
 
         // Log started
         await logProviderCall({
-            jobId,
+            jobId: 'mock',
             provider: 'stable_audio_mock',
             action: 'generate',
             status: 'started',
@@ -34,7 +34,7 @@ export class MockStableAudioProvider implements MusicProvider {
 
             // Log succeeded
             await logProviderCall({
-                jobId,
+                jobId: 'mock',
                 provider: 'stable_audio_mock',
                 action: 'generate',
                 status: 'succeeded',
@@ -60,7 +60,7 @@ export class MockStableAudioProvider implements MusicProvider {
 
             // Log failed
             await logProviderCall({
-                jobId,
+                jobId: 'mock',
                 provider: 'stable_audio_mock',
                 action: 'generate',
                 status: 'failed',

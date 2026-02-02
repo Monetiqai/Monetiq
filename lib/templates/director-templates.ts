@@ -14,17 +14,17 @@ export const DIRECTOR_TEMPLATES: Record<string, Template> = {
         scenes: [
             {
                 intent: 'Hero shot - product reveal',
-                duration: 5,
+                duration: 6,
                 movement: 'dolly_in'
             },
             {
                 intent: 'Detail shot - key feature',
-                duration: 5,
+                duration: 6,
                 movement: 'zoom_in'
             },
             {
                 intent: 'Lifestyle shot - product in use',
-                duration: 5,
+                duration: 6,
                 movement: 'pan_right'
             },
         ],
@@ -39,32 +39,32 @@ export const DIRECTOR_TEMPLATES: Record<string, Template> = {
         scenes: [
             {
                 intent: 'Establishing shot',
-                duration: 5,
+                duration: 6,
                 movement: 'drone_shot'
             },
             {
                 intent: 'Character introduction',
-                duration: 5,
+                duration: 6,
                 movement: 'dolly_in'
             },
             {
                 intent: 'Tension build',
-                duration: 5,
+                duration: 6,
                 movement: 'handheld'
             },
             {
                 intent: 'Action peak',
-                duration: 5,
+                duration: 6,
                 movement: 'orbit_around'
             },
             {
                 intent: 'Emotional moment',
-                duration: 5,
+                duration: 6,
                 movement: 'static'
             },
             {
                 intent: 'Final reveal',
-                duration: 5,
+                duration: 6,
                 movement: 'zoom_out'
             },
         ],

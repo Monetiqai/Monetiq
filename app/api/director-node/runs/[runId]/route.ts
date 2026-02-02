@@ -3,12 +3,12 @@ import { supabaseServer } from '@/lib/supabase/server';
 import { getAuthenticatedUser } from '@/lib/supabase/auth';
 
 export async function GET(
-    req: NextRequest,
-    { params }: { params: Promise<{ runId: string }> }
+    request: NextRequest,
+    context: { params: Promise<{ runId: string }> }
 ) {
     try {
         const supabase = await supabaseServer();
-        const { runId } = await params; // Await params in Next.js 16
+        const { runId } = await context.params; // Await params in Next.js 16
 
         // Get current user (cached)
         const user = await getAuthenticatedUser(supabase);
